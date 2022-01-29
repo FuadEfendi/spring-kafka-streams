@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.example.kafkaproducerrest;
+package com.example.kafka.pos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KafkaProducerRestApplicationTests {
+class KafkaProducerJsonApplicationTests {
+
   @Test
   void contextLoads() {}
 }

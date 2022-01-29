@@ -1,6 +1,10 @@
 POST http://localhost:8080/api/message
 Content-Type: application/json
 
-{"topic":"user_access_log", "key":"101", "value":"Abra Kadabra"}
+{
+  "topic": "user_access_log",
+  "key": "101",
+  "value": "Abra Kadabra"
+}
 
 ###

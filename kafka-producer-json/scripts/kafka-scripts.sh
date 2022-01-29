@@ -14,4 +14,11 @@
 # limitations under the License.
 #
 
+confluent local services start
 
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic pos-topic
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic pos-topic --from-beginning --property print.key=true --property key.separator=": \t"
+
+confluent local services stop
+confluent local destroy

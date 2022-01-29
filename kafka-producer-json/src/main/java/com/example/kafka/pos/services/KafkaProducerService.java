@@ -14,21 +14,28 @@
  * limitations under the License.
  */
 
-package com.example.kafkaproducerrest.services;
+package com.example.kafka.pos.services;
 
+import com.example.kafka.pos.model.Invoice;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 @Log4j2
 public class KafkaProducerService {
-  @Autowired private KafkaTemplate<String, String> kafkaTemplate;
+  @Value("${application.configs.topic.name}")
+  private String TOPIC_NAME;
 
-  public void sendMessage(String topic, String key, String value) {
-    log.info(
-        String.format("Sending message to Kafka; key: %s value: %s topic: %s", key, value, topic));
-    kafkaTemplate.send(topic, key, value);
+  private final KafkaTemplate<String, Invoice> kafkaTemplate;
+
+  public KafkaProducerService(KafkaTemplate<String, Invoice> kafkaTemplate) {
+    this.kafkaTemplate = kafkaTemplate;
+  }
+
+  public void sendMessage(Invoice invoice) {
+    log.info(String.format("Producing Invoice No: %s", invoice.getInvoiceNumber()));
+    kafkaTemplate.send(TOPIC_NAME, invoice.getStoreID(), invoice);
   }
 }
