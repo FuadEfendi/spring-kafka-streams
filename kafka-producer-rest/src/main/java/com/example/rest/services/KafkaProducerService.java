@@ -14,13 +14,21 @@
  * limitations under the License.
  */
 
-package com.example.kafkaproducerrest;
+package com.example.rest.services;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
 
-@SpringBootTest
-class KafkaProducerRestApplicationTests {
-  @Test
-  void contextLoads() {}
+@Service
+@Log4j2
+public class KafkaProducerService {
+  @Autowired private KafkaTemplate<String, String> kafkaTemplate;
+
+  public void sendMessage(String topic, String key, String value) {
+    log.info(
+        String.format("Sending message to Kafka; key: %s value: %s topic: %s", key, value, topic));
+    kafkaTemplate.send(topic, key, value);
+  }
 }

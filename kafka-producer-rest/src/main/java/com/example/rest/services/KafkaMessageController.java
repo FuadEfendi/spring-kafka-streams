@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.example.kafkaproducerrest.services;
+package com.example.rest.services;
 
-import com.example.kafkaproducerrest.model.Message;
+import com.example.rest.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

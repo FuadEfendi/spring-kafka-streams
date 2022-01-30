@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.kafkaproducerrest.model;
+package com.example.rest;
 
-import lombok.Data;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-@Data
-public class Message {
-  private String topic;
-  private String key;
-  private String value;
+@SpringBootTest
+class KafkaProducerRestApplicationTests {
+  @Test
+  void contextLoads() {}
 }

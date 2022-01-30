@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.kafkaproducerrest;
+package com.example.rest.model;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import lombok.Data;
 
-@SpringBootApplication
-public class KafkaProducerRestApplication {
-  public static void main(String[] args) {
-    SpringApplication.run(KafkaProducerRestApplication.class, args);
-  }
+@Data
+public class Message {
+  private String topic;
+  private String key;
+  private String value;
 }
