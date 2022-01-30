@@ -94,8 +94,8 @@
                             <goal>schema</goal>
                         </goals>
                         <configuration>
-                            <sourceDirectory>${project.basedir}/src/main/avro</sourceDirectory>
-                            <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                            <sourceDirectory>src/main/avro</sourceDirectory>
+                            <outputDirectory>target/generated-sources</outputDirectory>
                             <imports>
                                 <import>${project.basedir}/src/main/avro/LineItem.avsc</import>
                                 <import>${project.basedir}/src/main/avro/DeliveryAddress.avsc</import>
